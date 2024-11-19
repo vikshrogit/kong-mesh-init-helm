@@ -5,4 +5,4 @@ metadata:
   namespace: {{ .Release.Namespace }}
 type: Opaque
 data:
-  token: "spat_ZIRinabe2kTiVIeRew4ThLC2ONQe2nGdaUzpBnW630awsLpHI"
+  token: c3BhdF9mckJJckc2TWNteHpGVDVibEE3M053N1g2UDliOUNMbzNxUlZWZlhoMjMyQTBlTGVC
