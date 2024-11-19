@@ -1,0 +1,65 @@
+kuma:
+  nameOverride: kong-mesh-test
+  controlPlane:
+    environment: "universal" # for Init Container Required universal
+    logLevel: "info"
+    mode: "zone"
+    zone: "on-prem"
+    replicas: 1
+    kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
+    tls:
+      general:
+        # -- Secret that contains tls.crt, tls.key [and ca.crt when no
+        # controlPlane.tls.general.caSecretName specified] for protecting
+        # Kuma in-cluster communication
+        secretName: ""
+        # -- Secret that contains ca.crt that was used to sign cert for protecting
+        # Kuma in-cluster communication (ca.crt present in this secret
+        # have precedence over the one provided in the controlPlane.tls.general.secretName)
+        caSecretName: ""
+        # -- Base64 encoded CA certificate (the same as in controlPlane.tls.general.secret#ca.crt)
+        caBundle: ""
+
+    konnect:
+      # -- Control Plane Id of the control-plane in Mesh Konnect
+      cpId: "b7d12b50-096d-4536-aad7-0983002b5e52"
+
+    secrets:
+      - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
+        Secret: cp-token
+        Key: token
+
+    ingress:
+      enabled: true
+    egress:
+      enabled: true
+
+    podSecurityContext:
+      runAsNonRoot: true
+
+    containerSecurityContext:
+      readOnlyRootFilesystem: true
+
+    supportGatewaySecretsInAllNamespaces: true
+
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        memory: 256Mi
+
+    dns:
+      # -- Defines how DNS resolution is configured for that Pod.
+      policy: ""
+      # -- Optional dns configuration, required when policy is 'None'
+      config:
+        # -- A list of IP addresses that will be used as DNS servers for the Pod. There can be at most 3 IP addresses specified.
+        nameservers: []
+        # -- A list of DNS search domains for hostname lookup in the Pod.
+        searches: []
+
+  dataPlane:
+    # -- If true, then turn on CoreDNS query logging
+    dnsLogging: true
+

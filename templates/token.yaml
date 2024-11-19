@@ -1,0 +1,8 @@
+apiVersion: v1
+  kind: Secret
+  metadata:
+    name: cp-token
+    namespace: kong-mesh-system
+  type: Opaque
+  data:
+    token: c3BhdF94TFl3bVhIMXp3dks3aThUbkR5YnpKOHFwSHg4TXRpZld4TTJOTWpHZmZtUUVXUU5F
