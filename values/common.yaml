@@ -2,7 +2,7 @@ kuma:
   nameOverride: kong-mesh-test
   controlPlane:
     environment: "universal" # for Init Container Required universal
-    logLevel: "info"
+    logLevel: "debug"
     mode: "zone"
     zone: "on-prem"
     replicas: 1
