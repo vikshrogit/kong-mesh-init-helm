@@ -1,5 +1,5 @@
 apiVersion: v2
-name: mesh
+name: kong-mesh
 description: A Helm chart for Kubernetes Install Mesh Using init Container Method
 
 # A chart can be either an 'application' or a 'library' chart.
