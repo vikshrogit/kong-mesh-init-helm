@@ -3,6 +3,7 @@ kong-mesh:
     nameOverride: kong-mesh-test
     controlPlane:
       logLevel: debug
+      replicas: 2
       mode: zone
       zone: on-premise
       kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
@@ -12,7 +13,7 @@ kong-mesh:
         - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
           Secret: cp-token
           Key: token
-  
+
       podSecurityContext:
         runAsNonRoot: true
         runAsUser: 5678
