@@ -22,8 +22,11 @@ kong-mesh:
         runAsNonRoot: true
         runAsUser: 5678
         runAsGroup: 5678
+
+      podAnnotations:
+        io.cilium.managed: false
   
-    supportGatewaySecretsInAllNamespaces: true
+      supportGatewaySecretsInAllNamespaces: true
 
     ingress:
       enabled: false
