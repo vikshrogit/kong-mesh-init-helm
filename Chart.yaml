@@ -26,5 +26,5 @@ appVersion: "1.16.0"
 
 dependencies:
 - name: kong-mesh
-  version: "2.9.0"
+  version: "2.8.4"
   repository: https://kong.github.io/kong-mesh-charts
