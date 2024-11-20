@@ -14,13 +14,13 @@ kong-mesh:
           Secret: cp-token
           Key: token
 
-      podSecurityContext:
-        runAsNonRoot: true
+      #podSecurityContext:
+        #runAsNonRoot: true
         #runAsUser: 5678
         #runAsGroup: 5678
   
-      containerSecurityContext:
-        readOnlyRootFilesystem: true
+      #containerSecurityContext:
+        #readOnlyRootFilesystem: true
         #runAsNonRoot: true
         #runAsUser: 5678
         #runAsGroup: 5678
