@@ -14,22 +14,27 @@ kong-mesh:
           Secret: cp-token
           Key: token
 
-      #podSecurityContext:
-        #runAsNonRoot: true
-        #runAsUser: 5678
-        #runAsGroup: 5678
+      podSecurityContext:
+        runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
   
-      #containerSecurityContext:
-        #readOnlyRootFilesystem: true
-        #runAsNonRoot: true
-        #runAsUser: 5678
-        #runAsGroup: 5678
+      containerSecurityContext:
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
 
       #podAnnotations:
         #io.cilium.managed: false
   
       #supportGatewaySecretsInAllNamespaces: true
-
+    cni:
+      containerSecurityContext:
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
     ingress:
       enabled: false
     egress:
@@ -41,3 +46,27 @@ kong-mesh:
         memory: 256Mi
       limits:
         memory: 256Mi
+
+    hooks:
+      podSecurityContext:
+        runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
+  
+      containerSecurityContext:
+        readOnlyRootFilesystem: true
+        runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
+
+      ebpfCleanup:
+        podSecurityContext:
+          runAsNonRoot: true
+          runAsUser: 5678
+          runAsGroup: 5678
+        
+        containerSecurityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsUser: 5678
+          runAsGroup: 5678
