@@ -16,8 +16,6 @@ kong-mesh:
 
       podSecurityContext:
         runAsNonRoot: true
-        runAsUser: 5678
-        runAsGroup: 5678
   
       containerSecurityContext:
         readOnlyRootFilesystem: true
