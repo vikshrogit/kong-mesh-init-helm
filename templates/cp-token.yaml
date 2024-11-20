@@ -3,6 +3,6 @@ kind: Secret
 metadata:
   name: cp-token
   namespace: {{ .Release.Namespace }}
-type: Opaque
+type: generic
 data:
   token: c3BhdF8yOXVEQU5KeG1zY2RJT0RzNDRHMDhFNG1wU2Z1eEFhZ3prNGd4VG5ERDZjZ0NDUjd4

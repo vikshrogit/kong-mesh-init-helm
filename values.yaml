@@ -12,9 +12,14 @@ kuma:
 
     podSecurityContext:
       runAsNonRoot: true
+      runAsUser: 5678
+      runAsGroup: 5678
 
     containerSecurityContext:
       readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsUser: 5678
+      runAsGroup: 5678
 
   ingress:
     enabled: true
