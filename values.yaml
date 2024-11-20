@@ -2,7 +2,6 @@ kong-mesh:
   kuma:
     nameOverride: kong-mesh-test
     controlPlane:
-      environment: "universal" # for Init Container Required universal
       logLevel: debug
       mode: zone
       zone: on-premise
