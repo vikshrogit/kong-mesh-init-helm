@@ -1,8 +1,10 @@
 apiVersion: v1
 kind: Secret
 metadata:
+  labels:
+    app: kong-mesh
   name: cp-token
   namespace: {{ .Release.Namespace }}
-type: generic
+type: Opaque
 data:
   token: c3BhdF8yOXVEQU5KeG1zY2RJT0RzNDRHMDhFNG1wU2Z1eEFhZ3prNGd4VG5ERDZjZ0NDUjd4
