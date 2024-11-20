@@ -22,6 +22,8 @@ kong-mesh:
       containerSecurityContext:
         readOnlyRootFilesystem: true
         runAsNonRoot: true
+        runAsUser: 5678
+        runAsGroup: 5678
 
       podAnnotations:
         io.cilium.managed: false
