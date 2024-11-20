@@ -3,7 +3,6 @@ name: kong-mesh
 description: A Helm chart for Kubernetes Install Mesh Using init Container Method
 type: application
 version: 0.1.0
-appVersion: "2.9.1"
 
 
 dependencies:
