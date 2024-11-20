@@ -3,7 +3,7 @@ kong-mesh:
     nameOverride: kong-mesh-test
     controlPlane:
       logLevel: debug
-      replicas: 2
+      replicas: 1
       mode: zone
       zone: on-premise
       kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
