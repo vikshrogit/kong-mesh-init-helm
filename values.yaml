@@ -1,0 +1,36 @@
+kuma:
+  #nameOverride: kong-mesh-test
+  controlPlane:
+    #environment: "universal" # for Init Container Required universal
+    logLevel: debug
+    mode: zone
+    zone: on-prem
+    replicas: 1
+    kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
+    konnect:
+      cpId: b7d12b50-096d-4536-aad7-0983002b5e52
+
+    secrets:
+      - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
+        Secret: cp-token
+        Key: token
+
+    ingress:
+      enabled: false
+    egress:
+      enabled: false
+
+    podSecurityContext:
+      runAsNonRoot: true
+
+    containerSecurityContext:
+      readOnlyRootFilesystem: true
+
+    supportGatewaySecretsInAllNamespaces: false
+
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        memory: 256Mi
