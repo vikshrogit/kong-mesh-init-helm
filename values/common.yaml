@@ -2,27 +2,15 @@ kuma:
   nameOverride: kong-mesh-test
   controlPlane:
     #environment: "universal" # for Init Container Required universal
-    logLevel: "debug"
-    mode: "zone"
+    logLevel: debug
+    mode: zone
     zone: on-prem
     replicas: 1
     kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
-    tls:
-      general:
-        # -- Secret that contains tls.crt, tls.key [and ca.crt when no
-        # controlPlane.tls.general.caSecretName specified] for protecting
-        # Kuma in-cluster communication
-        secretName: ""
-        # -- Secret that contains ca.crt that was used to sign cert for protecting
-        # Kuma in-cluster communication (ca.crt present in this secret
-        # have precedence over the one provided in the controlPlane.tls.general.secretName)
-        caSecretName: ""
-        # -- Base64 encoded CA certificate (the same as in controlPlane.tls.general.secret#ca.crt)
-        caBundle: ""
 
     konnect:
       # -- Control Plane Id of the control-plane in Mesh Konnect
-      cpId: "b7d12b50-096d-4536-aad7-0983002b5e52"
+      cpId: b7d12b50-096d-4536-aad7-0983002b5e52
 
     secrets:
       - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
@@ -30,9 +18,9 @@ kuma:
         Key: token
 
     ingress:
-      enabled: true
+      enabled: false
     egress:
-      enabled: true
+      enabled: false
 
     podSecurityContext:
       runAsNonRoot: true
@@ -40,7 +28,7 @@ kuma:
     containerSecurityContext:
       readOnlyRootFilesystem: true
 
-    supportGatewaySecretsInAllNamespaces: true
+    supportGatewaySecretsInAllNamespaces: false
 
     resources:
       requests:
