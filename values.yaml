@@ -9,7 +9,14 @@ kuma:
       - Env: KMESH_MULTIZONE_ZONE_KDS_AUTH_CP_TOKEN_INLINE
         Secret: cp-token
         Key: token
+
+    podSecurityContext:
+      runAsNonRoot: true
+
+    containerSecurityContext:
+      readOnlyRootFilesystem: true
+
   ingress:
-    enabled: false
+    enabled: true
   egress:
-    enabled: false
+    enabled: true
