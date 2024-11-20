@@ -1,5 +1,5 @@
 kuma:
-  nameOverride: kong-mesh-test
+  #nameOverride: kong-mesh-test
   controlPlane:
     #environment: "universal" # for Init Container Required universal
     logLevel: debug
@@ -7,9 +7,7 @@ kuma:
     zone: on-prem
     replicas: 1
     kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
-
     konnect:
-      # -- Control Plane Id of the control-plane in Mesh Konnect
       cpId: b7d12b50-096d-4536-aad7-0983002b5e52
 
     secrets:
