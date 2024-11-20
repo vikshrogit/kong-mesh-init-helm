@@ -23,6 +23,6 @@ kong-mesh:
         runAsGroup: 5678
   
     ingress:
-      enabled: true
+      enabled: false
     egress:
-      enabled: true
+      enabled: false
