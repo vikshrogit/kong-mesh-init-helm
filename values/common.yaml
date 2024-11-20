@@ -4,7 +4,7 @@ kuma:
     #environment: "universal" # for Init Container Required universal
     logLevel: "debug"
     mode: "zone"
-    zone: "on-prem"
+    zone: on-prem
     replicas: 1
     kdsGlobalAddress: grpcs://eu.mesh.sync.konghq.com:443
     tls:
@@ -48,18 +48,4 @@ kuma:
         memory: 256Mi
       limits:
         memory: 256Mi
-
-    dns:
-      # -- Defines how DNS resolution is configured for that Pod.
-      policy: ""
-      # -- Optional dns configuration, required when policy is 'None'
-      config:
-        # -- A list of IP addresses that will be used as DNS servers for the Pod. There can be at most 3 IP addresses specified.
-        nameservers: []
-        # -- A list of DNS search domains for hostname lookup in the Pod.
-        searches: []
-
-  dataPlane:
-    # -- If true, then turn on CoreDNS query logging
-    dnsLogging: true
 
