@@ -24,7 +24,16 @@ kong-mesh:
         runAsUser: 5678
         runAsGroup: 5678
   
+    supportGatewaySecretsInAllNamespaces: true
+
     ingress:
       enabled: false
     egress:
       enabled: false
+
+    resources:
+      requests:
+        cpu: 500m
+        memory: 256Mi
+      limits:
+        memory: 256Mi
